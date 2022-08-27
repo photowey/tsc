@@ -1,0 +1,17 @@
+{
+  "name|required": "photowey",
+  "age|readonly": 18,
+  "balance": 10.24,
+  "boy": true,
+  "address": "chongqing",
+  "hobby": [
+    {
+      "name": "badminton",
+      "description": "badminton"
+    }
+  ],
+  "university": {
+    "name": "cqjtu",
+    "address": "ertang"
+  }
+}

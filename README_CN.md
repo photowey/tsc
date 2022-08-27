@@ -1,21 +1,18 @@
 # `tsc`
-> <font style="color:red">T</font>ype<font style="color:red">S</font>cript model <font style="color:red">C</font>onverter
+> 一个将 `json` 数据结构, 转换为 `typescript` 数据模型的转换器的项目
 >
-> A project that converts `json` data structures into `typescript` data models
 
 
-English | [中文](./README_CN.md)
+[English](./README.md) | 中文
 
 
 
-## 1.`Usage`
+## 1.用法
 
 - `tsc -d '${json.content}'`
 
   - ```shell
     $ tsc -d '{"name":"photowey","age":18}'
-    
-    # Use single quotes('') to wrap json data
     ```
 
 - `tsc --data '${json.content}'`
@@ -26,7 +23,7 @@ English | [中文](./README_CN.md)
 
 - `tsc < ${json.file}`
 
-  - > `linux input redirection`
+  - > 支持: `Linux` 输入重定向
   
   - ```shell
   $ tsc < example.json
@@ -42,10 +39,9 @@ English | [中文](./README_CN.md)
 
 
 
+## 2.输出示例:
 
-## 2.`Output`:
-
-### 2.1.`json file`
+### 2.1.`json` 文件
 
 ```json
 {
@@ -61,27 +57,27 @@ English | [中文](./README_CN.md)
     }
   ],
   "university": {
-    "name": "xxx",
+    "name": "cqjtu",
     "address": "ertang"
   }
 }
 
-// Notes:
-// We can decorate the `key` of the `json` data structure with `required` and `readonly`.
-// Thus, control over `TS` data model properties is achieved
+// 注意
+// 我们可以通过 `required` 和 `readonly` 来修饰 `json` 数据结构的 `key`。
+// 从而, 达到对 `TS` 数据模型属性的控制
 ```
 
 
 
-### 2.2.`typescript model`
+### 2.2.`typescript` 输出模型
 
-> the default top data-model name is "**`DataModel`**"
+> 默认的数据模型的名称为: `DataModel`
 >
-> > Since `GO` converts `JSON` content into `map[string]any` when processing it, it is also an unordered data structure.
+> > 由于 `GO` 在处理 `JSON` 内容的时候会将其转化为 `map[string]any` 也就是一个无序数据结构
 > >
-> > > This will lead to: The order of the attributes of the data model output is not the same each time. 
+> > > 这将导致: 每次输出的数据模型的属性的顺序不太一样
 > >
-> > supported data types:
+> > 现在支持的数据类型:
 > >
 > > - `string`
 > > - `number`
@@ -106,6 +102,7 @@ export interface Hobby {
 
 export interface University {
     address?: string // ertang
-    name?: string // xxx
+    name?: string // cqjtu
 }
 ```
+
