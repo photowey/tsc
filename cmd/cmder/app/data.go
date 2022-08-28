@@ -25,6 +25,7 @@ import (
 
 func onData() {
 	if data != "" {
+		fmt.Printf("the json file content:\n%s\n", data)
 		body := jsonparser.ParseMap[any](data)
 
 		model := converter.Convert(body)

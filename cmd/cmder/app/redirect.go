@@ -19,6 +19,8 @@ package app
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/photowey/tsc/internal/data/converter"
@@ -31,24 +33,31 @@ const (
 )
 
 var redirect = &cobra.Command{
-	Use: "<",
+	Use: "in",
 	Run: func(cmd *cobra.Command, args []string) {
-		for _, arg := range args {
-			if ok := checkSuffix(arg); !ok {
-				fmt.Printf("Only supports json files, now.")
-				return
-			}
-
-			jsonData, err := ioutil.ReadFile(arg)
-			if err != nil {
-				fmt.Printf("%v", err)
-				return
-			}
-
-			fmt.Printf("\n// ---------------------------------------------------------------- %s\n", arg)
-			convert(jsonData)
-		}
+		handle(args)
 	},
+}
+
+func handle(args []string) {
+	pwd, _ := os.Getwd()
+	fmt.Println("$ pwd")
+	fmt.Println(pwd)
+	for _, arg := range args {
+		if ok := checkSuffix(arg); !ok {
+			fmt.Printf("Only supports json files, now.")
+			return
+		}
+		jsonFile := filepath.Join(pwd, arg)
+		jsonData, err := ioutil.ReadFile(jsonFile)
+		if err != nil {
+			fmt.Printf("%v", err)
+			return
+		}
+
+		fmt.Printf("\n// ---------------------------------------------------------------- %s\n", arg)
+		convert(jsonData)
+	}
 }
 
 func convert(jsonByte []byte) {

@@ -9,32 +9,36 @@
 
 ## 1.用法
 
-- `tsc -d '${json.content}'`
+- `tsc -d '${json.string.content}'`
 
-  - ```shell
-    $ tsc -d '{"name":"photowey","age":18}'
+    - ```shell
+  $ tsc -d '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
+
+  # json 内容需要转义
     ```
 
-- `tsc --data '${json.content}'`
+- `tsc --data '${json.string.content}'`
 
-  - ```shell
-    $ tsc --data '{"name":"photowey","age":18}'
+    - ```shell
+  $ tsc --data '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
     ```
 
-- `tsc < ${json.file}`
+- `tsc in ${json.file}`
 
-  - > 支持: `Linux` 输入重定向
+    - > 现在还不支持: `Linux` 输入重定向，通过 **in** 子命令替代 **<**
+      >
+      > `tsc < ${json.file} `
+
+    - ```shell
+  $ tsc in example.json
+    ```
   
   - ```shell
-  $ tsc < example.json
+  $ tsc in example1.json example2.json
     ```
-  
-  - ```shell
-  $ tsc < example1.json example2.json
-    ```
-  
-  - ```shell
-    $ tsc < example1.json ... exampleN.json
+
+    - ```shell
+  $ tsc in example1.json ... exampleN.json
     ```
 
 
@@ -61,13 +65,13 @@
     "address": "ertang"
   }
 }
-
-// 注意
-// 我们可以通过 `required` 和 `readonly` 来修饰 `json` 数据结构的 `key`。
-// 从而, 达到对 `TS` 数据模型属性的控制
 ```
 
-
+```shell
+# 注意
+# 我们可以通过 `required` 和 `readonly` 来修饰 `json` 数据结构的 `key`。
+# 从而, 达到对 `TS` 数据模型属性的控制
+```
 
 ### 2.2.`typescript` 输出模型
 

@@ -10,34 +10,34 @@ English | [中文](./README_CN.md)
 
 ## 1.`Usage`
 
-- `tsc -d '${json.content}'`
+- `tsc -d '${json.string.content}'`
 
   - ```shell
-    $ tsc -d '{"name":"photowey","age":18}'
+    $ tsc -d '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
     
-    # Use single quotes('') to wrap json data
+    # Use single quotes('') to wrap json string content
     ```
 
-- `tsc --data '${json.content}'`
+- `tsc --data '${json.string.content}'`
 
   - ```shell
-    $ tsc --data '{"name":"photowey","age":18}'
+    $ tsc --data '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
     ```
 
-- `tsc < ${json.file}`
+- `tsc in ${json.file}`
 
-  - > `linux input redirection`
-  
+  - > Not supported yet: `Linux` input redirection, replace **`<`** with the **`in`** subcommand
+
   - ```shell
-  $ tsc < example.json
-    ```
-  
-  - ```shell
-  $ tsc < example1.json example2.json
+  $ tsc in example.json
     ```
   
   - ```shell
-    $ tsc < example1.json ... exampleN.json
+  $ tsc in example1.json example2.json
+    ```
+
+  - ```shell
+    $ tsc in example1.json ... exampleN.json
     ```
 
 
@@ -65,13 +65,13 @@ English | [中文](./README_CN.md)
     "address": "ertang"
   }
 }
-
-// Notes:
-// We can decorate the `key` of the `json` data structure with `required` and `readonly`.
-// Thus, control over `TS` data model properties is achieved
 ```
 
-
+```shell
+# Notes:
+# We can decorate the `key` of the `json` data structure with `required` and `readonly`.
+# Thus, control over `TS` data model properties is achieved
+```
 
 ### 2.2.`typescript model`
 
@@ -79,7 +79,7 @@ English | [中文](./README_CN.md)
 >
 > > Since `GO` converts `JSON` content into `map[string]any` when processing it, it is also an unordered data structure.
 > >
-> > > This will lead to: The order of the attributes of the data model output is not the same each time. 
+> > > This will lead to: The order of the attributes of the data model output is not the same each time.
 > >
 > > supported data types:
 > >
