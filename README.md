@@ -6,42 +6,37 @@
 
 English | [中文](./README_CN.md)
 
-
-
 ## 1.`Usage`
 
-- `tsc -d '${json.string.content}'`
+### 1.1.`tsc --data`
 
-  - ```shell
-    $ tsc -d '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
+1.1.1.`tsc -d '${json.string.content}'`
+
+```shell
+$ tsc -d '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
     
-    # Use single quotes('') to wrap json string content
-    ```
+# Use single quotes('') to wrap json string content
+```
 
-- `tsc --data '${json.string.content}'`
+1.1.2.`tsc --data '${json.string.content}'`
 
-  - ```shell
-    $ tsc --data '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
-    ```
+```shell
+$ tsc --data '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
+```
 
-- `tsc in ${json.file}`
+### 1.2.`tsc in`
 
-  - > Not supported yet: `Linux` input redirection, replace **`<`** with the **`in`** subcommand
+> Not supported yet: `Linux` input redirection, replace **`<`** with the **`in`** subcommand
 
-  - ```shell
-  $ tsc in example.json
-    ```
-  
-  - ```shell
-  $ tsc in example1.json example2.json
-    ```
+1.2.1.`tsc in ${json.file}`
 
-  - ```shell
-    $ tsc in example1.json ... exampleN.json
-    ```
+```shell
+$ tsc in example.json
 
+$ tsc in example1.json example2.json
 
-
+$ tsc in example1.json ... exampleN.json
+```
 
 ## 2.`Output`:
 

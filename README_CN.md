@@ -5,43 +5,37 @@
 
 [English](./README.md) | 中文
 
-
-
 ## 1.用法
 
-- `tsc -d '${json.string.content}'`
+### 1.1.`tsc --data`
 
-    - ```shell
-  $ tsc -d '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
+1.1.1.`tsc -d '${json.string.content}'`
 
-  # json 内容需要转义
-    ```
+```shell
+$ tsc -d '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
+    
+# json 需要转义为 json 字符串
+```
 
-- `tsc --data '${json.string.content}'`
+1.1.2.`tsc --data '${json.string.content}'`
 
-    - ```shell
-  $ tsc --data '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
-    ```
+```shell
+$ tsc --data '"{\"name|required\":\"photowey\",\"age|readonly\":18}"'
+```
 
-- `tsc in ${json.file}`
+### 1.2.`tsc in`
 
-    - > 现在还不支持: `Linux` 输入重定向，通过 **in** 子命令替代 **<**
-      >
-      > `tsc < ${json.file} `
+> 现在还不支持: `Linux` 输入重定向, 故采用 **`in`** 子命令来替换 **`<`**
 
-    - ```shell
-  $ tsc in example.json
-    ```
-  
-  - ```shell
-  $ tsc in example1.json example2.json
-    ```
+1.2.1.`tsc in ${json.file}`
 
-    - ```shell
-  $ tsc in example1.json ... exampleN.json
-    ```
+```shell
+$ tsc in example.json
 
+$ tsc in example1.json example2.json
 
+$ tsc in example1.json ... exampleN.json
+```
 
 ## 2.输出示例:
 
